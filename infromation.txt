@@ -1,0 +1,9 @@
+pip install Faker
+python manage.py shell
+
+> from App.models import Blog
+> from faker import Faker
+> faker = Faker()
+> faker.name()
+> for _ in range(0,1000):
+    Blog.objects.create(title=faker.name(),body =faker.text())
