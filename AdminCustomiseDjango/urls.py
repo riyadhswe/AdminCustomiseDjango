@@ -21,5 +21,5 @@ admin.site.site_title = "Riyadh blog Admin"
 admin.site.index_title = "Riyadh blog Admin"
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('', admin.site.urls),
 ]
