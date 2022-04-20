@@ -13,6 +13,7 @@ class BlogAdmin(admin.ModelAdmin):
     list_per_page = 10
     actions = ('Cross', 'Tick')
     date_hierarchy = 'date_created'
+    fields = ('title','body','is_draft','slug')
 
     def Cross(self, request, queryset):
         queryset.update(is_draft=False)
