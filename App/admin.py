@@ -1,10 +1,13 @@
 from django.contrib import admin
 from .models import *
+from import_export.admin import ImportExportModelAdmin
+from django_summernote.admin import SummernoteModelAdmin
+from App.resources import BlogResource
 
 
 # Register your models here.
 
-class BlogAdmin(admin.ModelAdmin):
+class BlogAdmin(ImportExportModelAdmin):
     list_display = ('title', 'body', 'date_created', 'is_draft', 'slug')
     list_filter = ('title',)
     ordering = ('title',)
@@ -20,6 +23,8 @@ class BlogAdmin(admin.ModelAdmin):
 
     def Tick(self, request, queryset):
         queryset.update(is_draft=True)
+
+    resource_class = BlogResource
 
 
 admin.site.register(Blog, BlogAdmin)
